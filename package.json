@@ -1,0 +1,16 @@
+{
+  "name": "voiceassistor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "baidu-aip-sdk": "^2.3.3",
+    "ffmpeg": "0.0.4",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
