@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "async": "^2.6.1",
     "baidu-aip-sdk": "^2.3.3",
     "express": "^4.16.4",
     "ffmpeg": "0.0.4"
