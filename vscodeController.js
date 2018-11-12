@@ -21,7 +21,7 @@ const cmdActMapping = [{
     delay: 0
   }],
 },{
-  cmd: '[第,d](\\d+)行改为(.*)',
+  cmd: '[第,d,b](\\d+)[行,航]改[为,成](.*)',
   acts: [{
     act: `node editfile.js $1 $2`,//第84行改为你好语音助手 //第112行改为今天单某要好好表现哦，
     delay: 0 
@@ -30,7 +30,7 @@ const cmdActMapping = [{
     delay:0
   }]
 },{
-  cmd:'[执行,运行]',
+  cmd:'[执运]行',
   acts:[{
     act:`${chromePath} ${webpage}`,//运行
     delay:0
@@ -51,15 +51,19 @@ exports.run = async function(command) {
         item.acts[1].act = item.acts[1].act.replace('$1', result[1]);
       }
         
-      return item.acts;
+      return true;
     }
   });
   let acts = mapItem.acts;
 
+
+  console.log('=========')
+  console.log(command);
+  console.log(acts);
+
   let tasks = [];
   acts.map((item)=>{
     tasks.push((callback)=>{
-      console.log(item.act)
       execSync(item.act, (error, stdout, stderr) => {
         if (error) {
           console.error(`exec error: ${error}`);
